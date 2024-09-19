@@ -1,6 +1,6 @@
 FROM debian:bullseye
 
-RUN apt-get update
+RUN apt-get update -y 
 RUN apt-get upgrade -y
 RUN apt -y install wget
 RUN apt -y install lsb-release apt-transport-https ca-certificates 
