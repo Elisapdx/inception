@@ -13,7 +13,9 @@ RUN openssl req -newkey rsa:4096 -x509 -sha256 -days 365 -nodes \
        -subj "/C=FR/ST=PACA/L=NICE/O=42 School/OU=epraduro/CN=epraduro/"
 
 # le fichier de conf de nginx est remplace par le notre au demarrage du container
-COPY conf/nginx.conf /etc/nginx/nginx.conf
+COPY conf/nginx.conf /etc/nginx/site-available/site.conf
+# RUN ln -s /etc/nginx/site-available/site.conf /etc/nginx/site-enabled/
+# RUN systemctl restart nginx
 
 # RUN mkdir -p /run/nginx
 

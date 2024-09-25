@@ -9,13 +9,14 @@ FLAGS			:=	-f ${COMPOSE_FILE} \
 					-p ${NAME}
 
 LOGIN=epraduro
-BASE = /Users
+BASE = /home
 VOLUMES= $(BASE)/$(LOGIN)/data/database \
 		 $(BASE)/$(LOGIN)/data/www \
 
 all: setup build
 
 setup:
+	sudo chmod 777 ${VOLUMES}
 	sudo bash -c 'cat /etc/hosts | grep $(LOGIN) &> /dev/null || echo "127.0.0.1 $(LOGIN).42.fr" >> /etc/hosts'
 	sudo mkdir -p $(VOLUMES)
 
