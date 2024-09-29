@@ -6,6 +6,7 @@ chmod +x wp-cli.phar
 mv -f wp-cli.phar /usr/local/bin/wp
 chmod 777 -R /usr/local/bin/wp
 rm -rf /var/www/html/wp-config-sample.php
+cp ./wp-config.php /var/www/html/wp-config.php
 wp --allow-root --info
 wp core download --allow-root --path="/var/www/html"
 wp core install \

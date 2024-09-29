@@ -16,12 +16,12 @@ VOLUMES= $(BASE)/$(LOGIN)/data/database \
 all: setup build
 
 setup:
-	sudo chmod 777 ${VOLUMES}
 	sudo bash -c 'cat /etc/hosts | grep $(LOGIN) &> /dev/null || echo "127.0.0.1 $(LOGIN).42.fr" >> /etc/hosts'
 	sudo mkdir -p $(VOLUMES)
+# sudo chmod +x ${VOLUMES}
 
 build:
-	@docker compose ${FLAGS} up -d --build
+	@docker compose ${FLAGS} up --build
 start:
 	@docker compose ${FLAGS} start > /dev/null
 

@@ -26,11 +26,13 @@ RUN chmod 777 -R /var/www/html
 
 RUN chown -R www-data:www-data /var/www/html
 
-COPY ./conf/wp-config.php /var/www/html/wp-config.php
-
 COPY tool/init_wordpress.sh ./ 
 RUN chmod +x ./init_wordpress.sh
 
+COPY ./conf/wp-config.php ./wp-config.php
+
 RUN mkdir /run/php/
+
+RUN echo $WORDPRESS_PASSWORD >> test.txt
 
 ENTRYPOINT ["./init_wordpress.sh"]
