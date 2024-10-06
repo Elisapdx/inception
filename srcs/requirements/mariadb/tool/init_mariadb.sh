@@ -1,4 +1,6 @@
 #!/bin/bash
+ 
+MYSQL_PASSWORD=$(cat /run/secrets/db_password)
 
 service mariadb start
 

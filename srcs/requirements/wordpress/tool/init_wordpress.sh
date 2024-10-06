@@ -1,5 +1,8 @@
 #!/bin/sh
 
+WORDPRESS_ADMIN_PASSWORD=$(awk -F":" '{print $1}' /run/secrets/credentials)
+WORDPRESS_PASSWORD=$(awk -F":" '{print $2}' /run/secrets/credentials)
+
 sleep 5
 curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 chmod +x wp-cli.phar

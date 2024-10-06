@@ -16,7 +16,7 @@ VOLUMES= $(BASE)/$(LOGIN)/data/database \
 all: setup build
 
 setup:
-	sudo bash -c 'cat /etc/hosts | grep $(LOGIN) &> /dev/null || echo "127.0.0.1 $(LOGIN).42.fr" >> /etc/hosts'
+	sudo bash -c 'cat /etc/hosts | grep $(LOGIN).42.fr &> /dev/null || echo "127.0.0.1 $(LOGIN).42.fr" >> /etc/hosts'
 	sudo mkdir -p $(VOLUMES)
 # sudo chmod +x ${VOLUMES}
 
