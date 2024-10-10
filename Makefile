@@ -17,9 +17,6 @@ all: setup build
 
 setup:
 	sudo bash -c 'cat /etc/hosts | grep $(LOGIN).42.fr &> /dev/null || echo "127.0.0.1 $(LOGIN).42.fr" >> /etc/hosts'
-	sudo mkdir -p $(VOLUMES)
-# sudo chmod +x ${VOLUMES}
-
 build:
 	@docker compose ${FLAGS} up --build
 start:
@@ -45,6 +42,7 @@ fclean: clean
 	@docker volume rm -f inception_database > /dev/null
 	@docker volume rm -f inception_www > /dev/null
 	@docker network rm inception > /dev/null
+	@docker system prune -f -a 
 
 re: stop fclean all
 

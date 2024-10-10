@@ -33,6 +33,4 @@ COPY ./conf/wp-config.php ./wp-config.php
 
 RUN mkdir /run/php/
 
-RUN echo $WORDPRESS_PASSWORD >> test.txt
-
 ENTRYPOINT ["./init_wordpress.sh"]
